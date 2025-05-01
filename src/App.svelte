@@ -19,8 +19,8 @@
   <p class="mt-2 text-lg sm:text-xl text-gray-700">Le goût du feu de bois</p>
 </div>
 	<Image
-	image1="public/pizza.png"
-	image2="/public/commerce.jpg"
+	image1="/pizza.png"
+	image2="/commerce.jpg"
 	/>
 	<MenuList />
 	<Contact/>
