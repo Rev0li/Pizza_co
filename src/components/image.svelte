@@ -1,8 +1,8 @@
 <script>
   export let title = "À PROPOS";
   export let text = "Une pizzeria artisanale avec des pizzas faites maison, des ingrédients frais et locaux, et une cuisson au feu de bois.";
-  export let image1 = "/public/pizza.png";
-  export let image2 = "/public/commerce.jpg";
+  export let image1 = "/pizza.png";
+  export let image2 = "/commerce.jpg";
 </script>
 
 <section class="about-section">
