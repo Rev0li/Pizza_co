@@ -1,7 +1,7 @@
 <script>
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+  import Contact from './components/Contact.svelte'
   import Hero from './components/Hero.svelte';
   import BottomNav from './components/BottomNav.svelte';
   import Image from './components/image.svelte';
@@ -23,11 +23,14 @@
 	image2="/public/commerce.jpg"
 	/>
 	<MenuList />
-
+	<Contact/>
 <BottomNav bind:active={current} />
 </main>
 
 <style>
+main {
+	padding-bottom: 3.5rem;
+}
   .logo {
     height: 6em;
     padding: 0em;

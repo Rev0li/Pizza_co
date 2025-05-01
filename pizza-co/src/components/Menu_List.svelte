@@ -1,19 +1,29 @@
 <script>
   export let pizzas = [
     {
-      icon: "🍕",
+		  icon: "/icone.png",
       name: "Reine",
-      desc: "Tomate, mozzarella, jambon, champignons",
+      desc: "Tomate, mozzarella, jambon, champignons, huile verte, olive, moutarde",
       price: "11 €"
     },
-    {
-      icon: "🍃",
+      {
+		  icon: "/icone.png",
+      name: "Reine",
+      desc: "Tomate, mozzarella, jambon, champignons, huile verte, olive, moutarde",
+      price: "11 €"
+    },   {
+		  icon: "/icone.png",
+      name: "Reine",
+      desc: "Tomate, mozzarella, jambon, champignons, huile verte, olive, moutarde",
+      price: "11 €"
+    },   {
+      icon: "/icone.png",
       name: "Végétarienne",
       desc: "Mozzarella, légumes saisonniers",
       price: "12 €"
     },
     {
-      icon: "🌶️",
+      icon: "/icone.png",
       name: "Diavola",
       desc: "Tomate, mozzarella, chorizo épicé",
       price: "12 €"
@@ -27,12 +37,16 @@
   <div class="pizza-list">
     {#each pizzas as p}
       <div class="pizza-item">
-        <div class="pizza-icon">{p.icon}</div>
-        <div class="pizza-info">
-          <div class="pizza-name">{p.name}</div>
-          <div class="pizza-desc">{p.desc}</div>
-        </div>
-        <div class="pizza-price">{p.price}</div>
+        <div class="pizza-icon">         
+			<img src={p.icon} alt={p.name + " icon"} />
+		</div>
+		<div class="pizza-text">
+			<div class="pizza-info">
+			<div class="pizza-name">{p.name}</div>
+    	    <div class="pizza-price">{p.price}</div>
+        	</div>
+			<div class="pizza-desc">{p.desc}</div>
+        </div>  
       </div>
     {/each}
 
@@ -44,7 +58,7 @@
 
 <style>
   .menu {
-    padding: 1rem;
+    padding: 0.5rem;
     background: #FFF9F5;
     color: #3B2714;
   }
@@ -62,37 +76,51 @@
 
   .pizza-item {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    /* align-items: center; */
+    justify-content: space-around;
     background: white;
     border-radius: 1rem;
-    padding: 0.75rem 1rem;
+    padding: 0.65rem 0.5rem;
     /* Ombre légère */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
-  .pizza-icon {
-    font-size: 1.5rem;
-    margin-right: 0.75rem;
+  .pizza-icon img {
+	  max-width: 45px;
+    margin-right: 0.5rem;
+  }
+  .pizza-icon  {
+  
+    display: flex;
+ 	align-items:center;
   }
 
+.pizza-text {
+	  display:flex;
+	  flex-direction:column;
+  }
   .pizza-info {
-    flex: 1;
+    display: flex;
+  	justify-content: flex-start;
+	  
   }
   .pizza-name {
     font-weight: 600;
     font-size: 1.1rem;
   }
   .pizza-desc {
+	  padding:0;
     font-size: 0.875rem;
     color: #555;
-    margin-top: 0.25rem;
   }
 
   .pizza-price {
+	  display:flex;
+	  flex-direction:row;
+	  justify-content:flex-end;
     font-size: 1.1rem;
     font-weight: 600;
-    margin-left: 1rem;
+	  flex-grow:1;
     white-space: nowrap;
   }
 
