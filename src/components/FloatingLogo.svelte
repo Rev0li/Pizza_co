@@ -12,11 +12,13 @@
     scrollY = window.scrollY;
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     const progress = Math.min(scrollY / maxScroll, 1);
+const startYvh = 17; // 20vh
+const endYvh = 97;   // 100 - 10vh = 90vh (distance depuis le top)
 
-	  const startYvh = 18;
-	const startY = window.innerHeight * (startYvh / 100);
+const startY = window.innerHeight * (startYvh / 100);
+const endY   = window.innerHeight * (endYvh / 100) - logoHeight;
 
-    const endY = window.innerHeight - 30 - logoHeight;
+
 
     offsetY = startY + progress * (endY - startY);
     offsetX = Math.sin(progress * Math.PI * 2) * -50;
