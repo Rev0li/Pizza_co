@@ -1,39 +1,49 @@
-<!-- FloatingLogo.svelte -->
 <script>
   import { onMount, onDestroy } from 'svelte';
-
   let scrollY = 0;
   let offsetX = 0;
   let offsetY = 0;
-  let scale   = 1;
+  let scale = 1;
+
+  let logoEl;
+  let logoHeight = 0;
 
   function handleScroll() {
     scrollY = window.scrollY;
-    // Hauteur totale scrollable
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    // progress 0 → 1
     const progress = Math.min(scrollY / maxScroll, 1);
 
-    // 1) vertical : de -50px → centre de l'écran
-    //    top initial = -50, on veut arriver à window.innerHeight/2
-    offsetY = progress * (window.innerHeight / 2.5 + 50);
+	  const startYvh = 18;
+	const startY = window.innerHeight * (startYvh / 100);
 
-    // 2) horizontal non-linéaire (sinus) si tu veux garder un balancement
+    const endY = window.innerHeight - 30 - logoHeight;
+
+    offsetY = startY + progress * (endY - startY);
     offsetX = Math.sin(progress * Math.PI * 2) * -50;
-
-    // 3) scale : de 1 → 2 (double taille)
     scale = 1 + progress;
   }
 
+  function measureLogo() {
+    if (logoEl) {
+      logoHeight = logoEl.offsetHeight;
+      handleScroll(); // recalcul immédiat
+    }
+  }
+
   onMount(() => {
+    measureLogo();
+    window.addEventListener('resize', measureLogo);
     window.addEventListener('scroll', handleScroll, { passive: true });
-    // initial
-    handleScroll();
   });
-  onDestroy(() => window.removeEventListener('scroll', handleScroll));
+
+  onDestroy(() => {
+    window.removeEventListener('resize', measureLogo);
+    window.removeEventListener('scroll', handleScroll);
+  });
 </script>
 
 <img
+  bind:this={logoEl}
   src="/Logotype-mini-RED.png"
   alt=""
   class="floating-logo"
@@ -48,9 +58,9 @@
 <style>
   .floating-logo {
     position: fixed;
-    top: 170px;             /* point de départ dans le haut de l'écran */
+    top: 0; /* on gère nous-mêmes l’offsetY */
     left: 50%;
-    width: 300px;           /* taille de base */
+    width: 300px;
     opacity: 0.8;
     pointer-events: none;
     will-change: transform;
