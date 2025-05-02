@@ -21,7 +21,7 @@
     padding: 1rem;
 	  height: 300px;
     text-align: center;
-    background: #FFF9F5;
+    background: var(--color-greyM);
     color: #3B2714;
   }
 
@@ -59,7 +59,7 @@
     left: 70%;
 	  width:150px;
     transform: translateX(-50%);
-    z-index: 1;
+    z-index: -3;
   }
 
   /* image du dessus */

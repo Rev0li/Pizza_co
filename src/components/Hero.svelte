@@ -1,6 +1,4 @@
 <script>
-  export let title = "La Minoterie";
-  export let subtitle = "Le goût du feu de bois bientôt...";
   import Button from './Button.svelte';
 </script>
 
@@ -22,13 +20,13 @@
 .center_button {
 	z-index: 10;
 	display: flex;
-	height: 25vh;
+	height: 30vh;
 	align-items: center;
 	justify-content: center;
 }
 .hero {
   width: 100vw;
-  height: 25vh;
+  height: 30vh;
   background-image: url('/public/pizzaria.jpg');
   background-size: cover;
   background-position: center;

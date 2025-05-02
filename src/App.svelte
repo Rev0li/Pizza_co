@@ -6,25 +6,26 @@
   import BottomNav from './components/BottomNav.svelte';
   import Image from './components/image.svelte';
   import MenuList from './components/Menu_List.svelte';
+  import About from './components/About.svelte';
+  import FloatLogo from './components/FloatingLogo.svelte';
+  import Test from './components/Test.svelte';
 
   let current = 'carte';
 </script>
 
 
 <main>
-<Hero />
-
-<div class="text-center px-4 py-8">
-  <h1 class="text-3xl sm:text-4xl font-bold">La Minoterie</h1>
-  <p class="mt-2 text-lg sm:text-xl text-gray-700">Le goût du feu de bois</p>
-</div>
+	<FloatLogo/>
+	<Hero />
+	<About/>
 	<Image
-	image1="/pizza.png"
-	image2="/commerce.jpg"
+		image1="/pizza.png"
+		image2="/commerce.jpg"
 	/>
 	<MenuList />
+	<!-- <Test/> -->
 	<Contact/>
-<BottomNav bind:active={current} />
+	<BottomNav bind:active={current} />
 </main>
 
 <style>

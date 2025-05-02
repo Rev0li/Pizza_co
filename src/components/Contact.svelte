@@ -22,7 +22,7 @@
     display: flex;
 	flex-direction:column;
     justify-content: space-between;
-    background-color: #FDF7EC;
+    background-color: #f5e4f530;
     padding: 0.5rem;
 	padding-bottom:1.5rem;
     font-family: Arial, sans-serif;
@@ -43,6 +43,7 @@
   }
 
   .social .icons {
+	color:var(--color-redM);
     display: flex;
 	justify-content: space-around;
     gap: 1rem;

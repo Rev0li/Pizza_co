@@ -11,10 +11,10 @@
 </button>
 <style>
 .template_1 {
-	background-color: #bb251c;
-	color: #e1e1e1;
+	background-color: var(--color-redM);
+	color: white;
 	border-radius: 8px;
-    border: 2px solid #e1e1e1;
+    border: 2px solid white;
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 1000;
